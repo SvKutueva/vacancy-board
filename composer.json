@@ -1,0 +1,17 @@
+{
+	"name": "meetmatt/jb",
+	"description": "Jobs bulletin",
+	"homepage": "https://github.com/meetmatt/jb",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Yuriy Golikov",
+			"email": "meetmatt@ya.ru"
+		}
+	],
+	"version": "0.0.1",
+	"require": {
+		"php": ">=5.4",
+		"zendframework/zendframework": "2.3.*"
+	}
+}
