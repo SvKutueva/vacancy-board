@@ -25,7 +25,8 @@
 	},
 	"scripts": {
 		"pre-install-cmd": [
-			"Distr\\Loader::loadConfigs"
+			"Distr\\Loader::initConfigs",
+			"./vendor/bin/doctrine-module orm:schema-tool:update --force"
 		]
 	}
 }

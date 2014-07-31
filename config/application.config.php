@@ -3,12 +3,14 @@
 return [
     'modules' => [
         'ZendDeveloperTools',
+        'DoctrineModule',
+        'DoctrineORMModule',
         'VacancyBoard'
     ],
     'module_listener_options' => [
         'module_paths' => [
-            MODULE_DIR,
-            VENDOR_DIR
+            __DIR__ . '/../module',
+            __DIR__ . '/../vendor'
         ],
 
         /**
@@ -24,7 +26,7 @@ return [
          *     config/MODULE_B/local.php
          */
         'config_glob_paths' => [
-            CONFIG_DIR . '/{,*/}{global,local}.php'
+            __DIR__ . '/../config/{,*/}{global,local}.php'
         ]
     ]
 ];

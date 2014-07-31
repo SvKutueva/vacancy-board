@@ -6,7 +6,7 @@ use Composer\Script\Event;
 
 class Loader
 {
-    public static function loadConfigs(Event $event)
+    public static function initConfigs(Event $event)
     {
         $configs = glob(__DIR__ . '/config/*.php');
 
