@@ -1,7 +1,7 @@
 {
-	"name": "meetmatt/jb",
-	"description": "Jobs bulletin",
-	"homepage": "https://github.com/meetmatt/jb",
+	"name": "meetmatt/vacancy-board",
+	"description": "Vacancy board",
+	"homepage": "https://github.com/meetmatt/vacancy-board",
 	"license": "MIT",
 	"authors": [
 		{
