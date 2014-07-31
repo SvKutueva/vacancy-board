@@ -16,13 +16,19 @@ class Loader
             if ( ! is_file($config)) {
                 continue;
             }
-            $resultConfig = $installer->processConfig(include $config);
 
             $basepath = dirname(dirname(__DIR__)) . '/config/';
-            $configPath = $basepath . implode('/', explode('.', str_replace('.php', '', basename($config))));
+            $configDir = $basepath . implode('/', explode('.', str_replace('.php', '', basename($config))));
+            $configFile = $configDir . '/local.php';
 
-            if ( ! is_dir($configPath)) {
-                mkdir($configPath, 0777, true);
+            if (file_exists($configFile)) {
+                continue;
+            }
+
+            $resultConfig = $installer->processConfig(include $config);
+
+            if ( ! is_dir($configDir)) {
+                mkdir($configDir, 0777, true);
             }
 
             $rawConfig = "<?php
@@ -34,7 +40,7 @@ class Loader
 
 return " . var_export($resultConfig, true) . ";
 ";
-            file_put_contents($configPath . '/local.php', $rawConfig);
+            file_put_contents($configFile, $rawConfig);
         }
     }
 }

@@ -15,7 +15,8 @@
 		"zendframework/zendframework": "2.3.*",
 		"composer/composer": "1.0.*@dev",
 		"doctrine/common": ">=2.1",
-		"doctrine/doctrine-orm-module": "0.7.*"
+		"doctrine/doctrine-orm-module": "0.7.*",
+		"zendframework/zend-developer-tools": "dev-master"
 	},
 	"autoload": {
 		"psr-0": {
@@ -23,7 +24,7 @@
 		}
 	},
 	"scripts": {
-		"pre-update-cmd": [
+		"pre-install-cmd": [
 			"Distr\\Loader::loadConfigs"
 		]
 	}
