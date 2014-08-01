@@ -15,5 +15,8 @@ return [
                 ]
             ]
         ]
+    ],
+    'data-fixture' => [
+        'VacancyBoard_fixture' => __DIR__ . '/../src/VacancyBoard/Fixtures'
     ]
 ];

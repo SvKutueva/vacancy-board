@@ -5,7 +5,8 @@ return [
         'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
-        'VacancyBoard'
+        'VacancyBoard',
+        'DoctrineDataFixtureModule'
     ],
     'module_listener_options' => [
         'module_paths' => [

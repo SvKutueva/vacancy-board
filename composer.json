@@ -16,6 +16,7 @@
 		"composer/composer": "1.0.*@dev",
 		"doctrine/common": ">=2.1",
 		"doctrine/doctrine-orm-module": "0.7.*",
+		"hounddog/doctrine-data-fixture-module": "0.0.*",
 		"zendframework/zend-developer-tools": "dev-master"
 	},
 	"autoload": {
@@ -25,8 +26,11 @@
 	},
 	"scripts": {
 		"pre-install-cmd": [
-			"Distr\\Loader::initConfigs",
-			"./vendor/bin/doctrine-module orm:schema-tool:update --force"
+			"Distr\\Loader::initConfigs"
+		],
+		"post-install-cmd": [
+			"./vendor/bin/doctrine-module orm:schema-tool:update --force",
+			"./vendor/bin/doctrine-module data-fixture:import  --append"
 		]
 	}
 }
