@@ -24,11 +24,16 @@ class Installer
     protected function askParams(array $requiredParams)
     {
         $result = [];
-        $this->io->write('<comment>Please provide configuration parameters</comment>');
-
         foreach ($requiredParams as $key => $params) {
             $default = isset($params['default']) ? $params['default'] : null;
             $message = $params['message'];
+
+            if ($default === true) {
+                $default = 'yes';
+            } elseif ($default === false) {
+                $default = 'no';
+            }
+
             $question = sprintf('<question>%s</question> (<comment>%s</comment>): ', $message, $default);
 
             $value = $this->io->askAndValidate($question, function ($val) use ($default, $message){
@@ -37,6 +42,14 @@ class Installer
                     }
                     return $val;
                 }, 3, $default);
+
+            if (in_array(strtolower($value), ['yes', 'y', 'true'])) {
+                $value = true;
+            }
+
+            if (in_array(strtolower($value), ['no', 'n', 'false'])) {
+                $value = false;
+            }
 
             $result[$key] = $value;
         }
